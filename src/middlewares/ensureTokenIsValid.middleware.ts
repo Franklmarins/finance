@@ -16,6 +16,7 @@ const ensureTokenIsValidMiddleware = async (
 
   return verify(token, process.env.SECRET_KEY!, (error: any, decoded: any) => {
     if (error) throw new AppError(error.message, 401);
+
     res.locals.userId = decoded.sub;
 
     return next();

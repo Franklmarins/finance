@@ -19,6 +19,8 @@ usersRoutes.post(
   createUserController
 );
 
+usersRoutes.get("/:id");
+
 usersRoutes.get("/all", retrieveUsersController);
 
 usersRoutes.patch(

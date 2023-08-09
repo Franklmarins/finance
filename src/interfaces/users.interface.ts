@@ -7,10 +7,10 @@ import {
   userSchema,
 } from "../schemas/users.schema";
 
-type TUser = z.infer<typeof userSchema>;
-type TUserRequest = z.infer<typeof createUserSchema>;
-type TUserResponse = z.infer<typeof returnUserSchema>;
-type TUsersResponse = z.infer<typeof returnUsersSchema>;
-type TUserUpdate = z.infer<typeof updateUserSchema>;
+type IUser = z.infer<typeof userSchema>;
+type IUserRequest = z.infer<typeof createUserSchema>;
+type IUserResponse = z.infer<typeof returnUserSchema>;
+type IUsersResponse = z.infer<typeof returnUsersSchema>;
+type IUserUpdate = z.infer<typeof updateUserSchema>;
 
-export { TUser, TUserRequest, TUserResponse, TUserUpdate, TUsersResponse };
+export { IUser, IUserRequest, IUserResponse, IUserUpdate, IUsersResponse };

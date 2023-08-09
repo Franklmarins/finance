@@ -2,7 +2,7 @@ import { compare } from "bcryptjs";
 import { prisma } from "../..";
 import AppError from "../../errors/appError";
 import { ILogin, IToken } from "../../interfaces/login.interface";
-import { sign } from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 
 const loginService = async (loginData: ILogin): Promise<IToken> => {
   const user = await prisma.user.findUnique({
@@ -18,12 +18,12 @@ const loginService = async (loginData: ILogin): Promise<IToken> => {
 
   if (!passwordCompare) throw new AppError("Invalid email or password!", 401);
 
-  const token: string = sign(
+  const token: string = jwt.sign(
     {
       email: user.email,
     },
-    "scretkey",
-    { expiresIn: "24h", subject: String(user.id) }
+    process.env.SECRET_KEY!,
+    { subject: user.id, expiresIn: "24h" }
   );
 
   return { token };

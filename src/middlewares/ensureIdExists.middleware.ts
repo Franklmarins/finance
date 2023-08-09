@@ -7,7 +7,7 @@ const ensureIdExistsMiddleware = async (
   res: Response,
   next: NextFunction
 ): Promise<void> => {
-  const id = req.params.id;
+  const id = res.locals.userId;
   const user = await prisma.user.findFirst({ where: { id } });
 
   if (!user) {

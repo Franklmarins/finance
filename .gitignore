@@ -4,4 +4,3 @@ dist
 .env
 .vscode
 *.log*
-banco-de-dados-finance

@@ -3,10 +3,7 @@ import {
   ICreditCard,
   ICreditCardRequest,
 } from "../../interfaces/creditCard.interface";
-import {
-  creditCardSchema,
-  returnCreditCardsSchema,
-} from "../../schemas/creditCard.schema";
+import { creditCardSchema } from "../../schemas/creditCard.schema";
 
 const createCreditCardService = async (
   id: string,
